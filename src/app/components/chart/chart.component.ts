@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 
-import ApexCharts from 'apexcharts';
+import * as ApexCharts from 'apexcharts';
 import { User } from '../../interfaces/user';
 import { UsersService } from '../../services/users.service';
 
@@ -128,9 +128,7 @@ this._usersService.getUsers().subscribe({
         position: 'top',
       },
       colors: ['#8A74F9'],
-      markers: {
-        // height: 500,
-      },
+      markers: {},
 
       tooltip: {
         enabled: true,
@@ -214,7 +212,7 @@ this._usersService.getUsers().subscribe({
     };
 
     const chartElement = document.querySelector('#chart');
-    const chart = new ApexCharts(chartElement, chartOptions);
+    const chart = new ApexCharts.default(chartElement, chartOptions);
     chart.render();
   }
 }
