@@ -1,49 +1,46 @@
+/* Container for the row of card and chart */
 .row {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: stretch; /* Ensures both components are the same height */
-  gap: 20px;
+  align-items: stretch; /* Ensures equal height for both elements */
+  justify-content: space-between; /* Spreads out the components */
+  gap: 20px; /* Optional: Adds space between the card and chart */
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
 }
 
+/* Ensure card and chart take up equal height and adjust width */
 app-card, app-chart {
   flex: 1;
-  max-width: 50%;
-  height: auto; /* Let the components' height adjust dynamically */
-  display: flex;
-  flex-direction: column;
-  background-color: #fff; /* Optional: ensure both components have the same background color */
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Optional: apply consistent shadow */
-  border-radius: 8px; /* Optional: consistent border radius */
-  padding: 20px;
+  min-width: 300px; /* Optional: Ensures a minimum width for each component */
+  max-width: 48%; /* Ensures components do not exceed half the width of the row */
 }
 
-app-card {
-  background-color: #f5f5f5; /* Optional: card specific styling */
-}
-
-app-chart {
-  background-color: #ffffff; /* Optional: chart specific styling */
-}
-:host {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.card-content, .chart-content {
-  flex-grow: 1; /* This makes sure content takes up the remaining height */
-  display: flex;
-  align-items: center; /* Vertically center content */
-  justify-content: center; /* Horizontally center content */
-}
-
+/* Media query for smaller screens */
 @media (max-width: 768px) {
   .row {
-    flex-direction: column;
+    flex-direction: column; /* Stacks components vertically */
+    align-items: center; /* Center-aligns components in column layout */
   }
 
   app-card, app-chart {
-    max-width: 100%;
+    width: 100%; /* Ensures components take full width of the container */
+    max-width: 100%; /* Removes the max-width restriction */
+    margin-bottom: 20px; /* Adds space between stacked components */
+  }
+
+  /* Remove margin-bottom from the last component */
+  .row > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Media query for very small screens */
+@media (max-width: 480px) {
+  /* Adjustments for even smaller screens */
+  .row {
+    gap: 10px; /* Reduces gap between components */
+  }
+
+  app-card, app-chart {
+    font-size: 14px; /* Optional: Adjust font size for smaller screens */
   }
 }

@@ -1,9 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-body {
-  font-family: 'Inter', sans-serif;
+
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+html, body { height: 100%;  background-color:#F3F5F7;}
+body { margin: 0; overflow-x: visible;                                                                    font-family: 'Neo Sans Arabic', sans-serif;
+    font-family: 'Neo Sans Arabic', sans-serif;
 }
-::-webkit-scrollbar {
-  display: none;
-}
+
+:root {
+    --main-color: #8a74f9;
+  }
 

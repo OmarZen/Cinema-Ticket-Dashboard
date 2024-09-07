@@ -1,16 +1,32 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { CardComponent } from './card/card.component';
-import { ChartComponent } from './chart/chart.component';
-import { TableComponent } from './table/table.component';
-
+import { trigger, state, style, animate, transition } from '@angular/animations';
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, CardComponent, ChartComponent, TableComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
+  animations: [
+    trigger('slideInFromLeft', [
+      transition(':enter', [
+        style({ transform: 'translateX(-100%)' }),
+        animate('500ms ease-out', style({ transform: 'translateX(0%)' })),
+      ]),
+    ]),
+    trigger('slideInFromRight', [
+      transition(':enter', [
+        style({ transform: 'translateX(100%)' }),
+        animate('500ms ease-out', style({ transform: 'translateX(0%)' })),
+      ]),
+    ]),
+    trigger('slideInFromBottom', [
+      transition(':enter', [
+        style({ transform: 'translateY(100%)' }),
+        animate('500ms ease-out', style({ transform: 'translateY(0%)' })),
+      ]),
+    ]),
+  ],
 })
+
 export class AppComponent {
-  title = 'ticket-sales-app';
+  title = 'Ticket';
+  isRtl: boolean = true;
 }
