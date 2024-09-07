@@ -1,0 +1,42 @@
+<!-- Main card container -->
+<div class="card-container">
+  <!-- Edit button (outside the card) -->
+  <button class="edit-btn">
+    <fa-icon [icon]="'pencil'"></fa-icon> تعديل
+  </button>
+
+  <!-- Inside the card -->
+  <div class="card-content">
+    <!-- First row: Trash icon and title -->
+    <div class="card-header">
+      <fa-icon class="trash-icon" [icon]="'trash'"></fa-icon>
+      <p class="ticket-title">عرض التذكرة الخاصة بالفيلم</p>
+    </div>
+
+    <!-- Second row: URL section with copy icon -->
+    <div class="ticket-url-box">
+      <fa-icon class="copy-icon" [icon]="'copy'"></fa-icon>
+      <p class="ticket-url">www.tazkty.com/473847</p>
+    </div>
+
+    <!-- Third row: Availability date -->
+    <p class="validity">فعال حتى 15 يوليو 2023</p>
+
+    <!-- Fourth row: Divider -->
+    <hr class="divider" />
+
+    <!-- Fifth row: QR code and discount section -->
+    <div class="ticket-footer">
+      <div class="qr-code">
+        <qrcode [qrdata]="'www.tazkty.com/473847'" size="100"></qrcode>
+      </div>
+      <button class="share-btn">
+        <fa-icon [icon]="'share'"></fa-icon> مشاركة
+      </button>
+      <div class="discount-section">
+        <p>خصم</p>
+        <p>25%</p>
+      </div>
+    </div>
+  </div>
+</div>

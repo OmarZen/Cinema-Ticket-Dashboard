@@ -1,0 +1,96 @@
+.card-container {
+  background-color: #8A74F9;
+  border-radius: 15px;
+  padding: 20px;
+  position: relative;
+  font-family: 'Inter', sans-serif;
+}
+
+.edit-btn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.card-content {
+  background-image: url('../../assets/images/wave.svg');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  padding: 20px;
+  color: white;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.trash-icon:hover::after {
+  content: "حذف";
+  color: white;
+}
+
+.ticket-title {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.ticket-url-box {
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.ticket-url {
+  color: #8A74F9;
+  margin-left: 10px;
+}
+
+.validity {
+  text-align: center;
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.divider {
+  border: none;
+  border-top: 2px dashed rgba(255, 255, 255, 0.4);
+  margin: 15px 0;
+}
+
+.ticket-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.qr-code {
+  flex: 1;
+}
+
+.discount-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.share-btn {
+  background-color: white;
+  color: #8A74F9;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}

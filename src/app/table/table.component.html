@@ -1,0 +1,111 @@
+<div class="table-container">
+  <!-- Top Block with Button, Toggle, Title, Search, and Filters -->
+  <div class="header-section">
+    <!-- Right Side: Button and Toggle -->
+    <div class="right-header">
+      <button class="new-ticket-button">
+        <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+        حجز تذكرة جديدة
+      </button>
+      <div class="toggle-container">
+        <span class="toggle-label">{{ isOn ? 'مفعلة' : 'غير مفعلة' }}</span>
+        <div class="toggle-switch" (click)="toggleSwitch()">
+          <div [class.active]="isOn" class="toggle-knob"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Left Side: Title, Search, and Filters -->
+    <div class="left-header">
+      <button class="filter-button">
+        <fa-icon [icon]="['fas', 'filter']"></fa-icon>
+      </button>
+      <button class="filter-button">
+        <fa-icon [icon]="['fas', 'filter']"></fa-icon>
+      </button>
+      <div class="search-container">
+        <input type="text" placeholder="بحث عن ..." />
+        <button class="search-button">
+          <fa-icon [icon]="['fas', 'search']"></fa-icon>
+        </button>
+      </div>
+
+      <span class="ticket-sales-title">مبيعات التذاكر</span>
+    </div>
+  </div>
+
+  <!-- Table Section -->
+  <p-table [value]="tickets" [paginator]="true" [rows]="5" [responsive]="true" [rowsPerPageOptions]="[5, 10, 15]">
+    <!-- Custom Pagination Template -->
+  <ng-template pTemplate="paginatorleft">
+    <span class="custom-paginator-text">Showing {{ (tickets | slice:(paginatorFirst):(paginatorFirst + paginatorRows)).length }} of {{ tickets.length }}</span>
+  </ng-template>
+  <ng-template pTemplate="paginatorright">
+    <span class="custom-pagination-control">
+      Rows per page:
+      <select [(ngModel)]="paginatorRows" (ngModelChange)="changePageSize($event)">
+        <option *ngFor="let option of rowsPerPageOptions" [value]="option">{{ option }}</option>
+      </select>
+    </span>
+  </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th>التذكرة</th>
+        <th>عدد مرات الشراء</th>
+        <th>عدد الأشخاص</th>
+        <th>السينمات</th>
+        <th>قيمة التذكرة</th>
+        <th>رقم التذكرة</th>
+        <th>المستخدم</th>
+        <th>#</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-ticket>
+      <tr>
+        <td>
+          <div class="ticket-info">
+            <button class="download-button" (click)="downloadFile(ticket.file)" pButton>
+              <fa-icon [icon]="['fas', 'download']"></fa-icon>
+            </button>
+            <div class="ticket-details">
+              <div class="ticket-file-name">{{ ticket.name }}</div>
+              <div class="ticket-file-info">9mb . PDF</div> <!-- Adjust this if necessary -->
+            </div>
+            <div class="ticket-icon-container">
+              <fa-icon [icon]="['fas', 'ticket']" class="ticket-icon"></fa-icon>
+            </div>
+
+          </div>
+
+        </td>
+        <td>{{ ticket.purchaseCount }}</td>
+        <td>{{ ticket.persons }}</td>
+        <td>
+          <div class="cinema-container" [title]="ticket.cinema">
+            <span class="cinema-name">{{ ticket.cinema }}</span>
+          </div>
+        </td>
+        <td>{{ ticket.price }}</td>
+        <td>{{ ticket.ticketNumber }}</td>
+        <td>
+          <div class="user-info">
+            <div class="user-details">
+              <span class="user-name">{{ ticket.user.name }}</span>
+              <span class="user-phone">{{ ticket.user.phone }}</span>
+            </div>
+            <div *ngIf="ticket.user.avatar; else initialsAvatar" class="avatar">
+              <img [src]="ticket.user.avatar" alt="{{ ticket.user.name }}" />
+            </div>
+            <ng-template #initialsAvatar>
+              <div class="initials-avatar" [ngStyle]="{'background-color': getColorForName(ticket.user.name)}">
+                {{ getInitials(ticket.user.name) }}
+              </div>
+            </ng-template>
+          </div>
+        </td>
+
+        <td>{{ ticket.id }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

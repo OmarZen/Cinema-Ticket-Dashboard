@@ -1,0 +1,49 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch; /* Ensures both components are the same height */
+  gap: 20px;
+}
+
+app-card, app-chart {
+  flex: 1;
+  max-width: 50%;
+  height: auto; /* Let the components' height adjust dynamically */
+  display: flex;
+  flex-direction: column;
+  background-color: #fff; /* Optional: ensure both components have the same background color */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Optional: apply consistent shadow */
+  border-radius: 8px; /* Optional: consistent border radius */
+  padding: 20px;
+}
+
+app-card {
+  background-color: #f5f5f5; /* Optional: card specific styling */
+}
+
+app-chart {
+  background-color: #ffffff; /* Optional: chart specific styling */
+}
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-content, .chart-content {
+  flex-grow: 1; /* This makes sure content takes up the remaining height */
+  display: flex;
+  align-items: center; /* Vertically center content */
+  justify-content: center; /* Horizontally center content */
+}
+
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+
+  app-card, app-chart {
+    max-width: 100%;
+  }
+}
