@@ -41,7 +41,7 @@ The assignment was to design and develop a single responsive web page that integ
 ### Setup Instructions:
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/ticket-management-page.git
+   git clone https://github.com/OmarZen/Cinema-Ticket-Dashboard
    ```
 2. Navigate into the project directory:
    ```bash
@@ -64,11 +64,7 @@ The assignment was to design and develop a single responsive web page that integ
 ## Submission Information:
 This task was part of the evaluation for the **Frontend Developer** role at A Technologies. It has been developed according to the technical instructions and sent for assessment.
 
----
-
-Feel free to modify the content to suit your preferences or to add any specific details you would like to highlight!
-
-# TicketSalesApp
+# TicketSalesApp - Angular Project Details
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.3.
 
